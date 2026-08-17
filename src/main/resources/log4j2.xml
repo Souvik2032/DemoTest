@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN"
+xmlns="http://logging.apache.org/log4j/2.0/config">
+
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="%d{HH:mm:ss} %-5level %c - %msg%n"/>
+        </Console>
+
+        <RollingFile
+            name="RollingFile"
+            fileName="${sys:user.dir}/Logs/CurrentExecution.log"
+            filePattern="${sys:user.dir}/Logs/Execution-%d{yyyy-MM-dd-HH-mm-ss}.log">
+
+            <PatternLayout
+                pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %c - %msg%n"/>
+
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
