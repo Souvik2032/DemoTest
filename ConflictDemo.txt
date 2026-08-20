@@ -1,1 +1,1 @@
-This line was written from feature/conflict-demo branch.
+This line is modified from feature/conflict-demo branch.
